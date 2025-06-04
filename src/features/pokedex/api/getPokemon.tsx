@@ -31,7 +31,8 @@ const formatPokemonResponse = (
   pokemonDetail: PokemonDetailDTO
 ): PokemonDetail => {
   return {
-    id: pokemonDetail.id,
+    id: Number(pokemonDetail.id),
+    url: "",
     name: pokemonDetail.name,
     experience: pokemonDetail.base_experience,
     abilities: pokemonDetail.abilities.map(mapPokemonAbilityDTOToAbility),

@@ -11,7 +11,7 @@ import { env } from "@/config/env";
 const mapPokemonDTOToPokemon = (pokemon: PokemonDTO): Pokemon => {
   const pokemonId = pokemon.url.split("/").slice(-2, -1)[0];
   return {
-    id: pokemonId,
+    id: Number(pokemonId),
     name: pokemon.name,
     url: pokemon.url,
     image: `${env.API_IMAGE_URL}/${pokemonId}.svg`,
