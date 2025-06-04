@@ -19,9 +19,15 @@ const mapPokemonDTOToPokemon = (pokemon: PokemonDTO): Pokemon => {
 };
 
 const formatPokemonResponse = (pokemon: PokemonListResponse): PokemonList => {
+  const mappedPokemons = pokemon.results.map(mapPokemonDTOToPokemon);
+
+  const randomizedPokemons = [...mappedPokemons].sort(
+    () => Math.random() - 0.5
+  );
+
   return {
     total: pokemon.count,
-    pokemons: pokemon.results.map(mapPokemonDTOToPokemon),
+    pokemons: randomizedPokemons,
   };
 };
 
